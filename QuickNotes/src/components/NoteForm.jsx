@@ -4,12 +4,13 @@ function NoteForm({newNote,setNewNote,addNote}){
         <>
         <div>
             <input
+            id="noteInput"
             type="text"
             value={newNote}
             onChange={(e)=>setNewNote(e.target.value)}
             placeholder='Write here a notice'
             />
-           <button onClick={addNote}>Add note</button>
+           <button id="addNoteButton" onClick={addNote}>Add note</button>
         </div>
         </>
     );

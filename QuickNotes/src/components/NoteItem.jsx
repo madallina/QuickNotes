@@ -1,10 +1,10 @@
 
-function NoteItem({note,index,deleteNote}){
+function NoteItem({note,deleteNote}){
     return (
     <>
     <div>
-        <p>{note}</p>
-        <button onClick={()=>deleteNote(index)}>Delete</button>
+        <p>{note.text}</p>
+        <button onClick={()=>deleteNote(note.id)}>Delete</button>
     </div>
     </>
     );
