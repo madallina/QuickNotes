@@ -17,20 +17,27 @@ useEffect(() => {
 
 
 useEffect(() => {
-  localStorage.setItem('notes', JSON.stringify(notes));
+  if (notes.length > 0) {
+    localStorage.setItem('notes', JSON.stringify(notes));
+  }
 }, [notes]);
 
 
 const addNote = () => {
   if (newNote.trim() !== '') {
-    setNotes([...notes, newNote]);
+    const newNoteObject={
+      id: Date.now(),
+      text : newNote,
+  
+    };
+    setNotes([...notes, newNoteObject]);
     setNewNote(''); 
   }
 };
 
 
-const deleteNote = (index) => {
-  const updatedNotes = notes.filter((note, i) => i !== index);
+const deleteNote = (id) => {
+  const updatedNotes = notes.filter((note) => note.id !== id);
   setNotes(updatedNotes);
 };
 
